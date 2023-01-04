@@ -2,12 +2,16 @@ input.onButtonPressed(Button.A, function () {
     主角.change(LedSpriteProperty.X, -1)
 })
 input.onButtonPressed(Button.AB, function () {
-    子彈 = game.createSprite(主角.get(LedSpriteProperty.X), 主角.get(LedSpriteProperty.Y))
+    子彈.set(LedSpriteProperty.X, 主角.get(LedSpriteProperty.X))
+    子彈.set(LedSpriteProperty.Y, 主角.get(LedSpriteProperty.Y))
+    子彈.set(LedSpriteProperty.Brightness, 225)
     for (let index = 0; index < 4; index++) {
-        子彈.change(LedSpriteProperty.X, -1)
+        子彈.change(LedSpriteProperty.Y, -1)
         basic.pause(100)
     }
-    子彈.delete()
+    子彈.set(LedSpriteProperty.Brightness, 0)
+    子彈.set(LedSpriteProperty.X, 4)
+    子彈.set(LedSpriteProperty.Y, 4)
 })
 input.onButtonPressed(Button.B, function () {
     主角.change(LedSpriteProperty.X, 1)
